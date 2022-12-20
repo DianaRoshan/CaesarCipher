@@ -18,6 +18,7 @@ public class Main {
             switch (menu){
                 case 1:
                     System.out.println("Введите название файла:");
+                    sc.nextLine();
                     String path= sc.nextLine();
                     System.out.println("Введите ключ:");
                     int key = sc.nextInt();
@@ -27,12 +28,22 @@ public class Main {
                         throw new RuntimeException(e);
                     }
                     break;
-                case 2: break;
+                case 2:
+                    System.out.println("Введите название файла:");
+                    sc.nextLine();
+                    String path2= sc.nextLine();
+                    System.out.println("Введите ключ:");
+                    int key2 = sc.nextInt();
+                    try {
+                        cipher.Decrypt(path2,key2);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                    break;
                 case 3: break;
                 default:break;
             }
         }
-
 
 
 
