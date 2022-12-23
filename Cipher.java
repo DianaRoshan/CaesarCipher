@@ -1,12 +1,9 @@
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-
 
 public class Cipher {
-    public final char[] alph="абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ.,””:-! ?".toCharArray();
+    private final char[] alph="абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ.,””:-! ?".toCharArray();
 
-    public void Encrypt(String filePath, int key) throws IOException {
+    public void encrypt(String filePath, int key) throws IOException {
         if (key>0) {
             try (FileReader in = new FileReader(filePath);
                  BufferedReader reader = new BufferedReader(in);
@@ -17,13 +14,12 @@ public class Cipher {
                     }
                     out.append('\n');
                 }
-                System.out.println("Результат записан в encryptResult.txt\n");
             }
         }else {
             System.out.println("Ключ должен быть больше 0!");
         }
     }
-    public char chekAlphEncrypt(char symbol,int key){
+    private char chekAlphEncrypt(char symbol,int key){
         for (int j = 0; j < alph.length; j++) {
             if (symbol == alph[j]) {
                 char c= alph[(j+key)%alph.length];
@@ -33,7 +29,7 @@ public class Cipher {
         return symbol;
     }
 
-    public void Decrypt(String filePath, int key) throws IOException {
+    public void decrypt(String filePath, int key) throws IOException {
         if(key>0) {
             try (FileReader in = new FileReader(filePath);
                  BufferedReader reader = new BufferedReader(in);
@@ -44,13 +40,12 @@ public class Cipher {
                     }
                     out.append('\n');
                 }
-                System.out.println("Результат записан в decryptResult.txt\n");
             }
         }else {
             System.out.println("Ключ должен быть больше 0!");
         }
     }
-    public char chekAlphDecrypt(char symbol,int key){
+    private char chekAlphDecrypt(char symbol,int key){
         char c;
         for (int j = 0; j < alph.length; j++) {
             if (symbol == alph[j]) {
