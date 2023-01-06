@@ -54,8 +54,6 @@ public class Main {
                     }
                     break;
                 default:
-                    System.out.println("Выберите пункт из меню!");
-                    System.out.println();
                     break;
             }
         }

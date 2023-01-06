@@ -7,13 +7,16 @@ public class Cipher {
         if (key>0) {
             try (FileReader in = new FileReader(filePath);
                  BufferedReader reader = new BufferedReader(in);
-                 FileWriter out = new FileWriter("encryptResult.txt")) {
+                 FileWriter out = new FileWriter("encryptResult.txt");
+                 BufferedWriter writer=new BufferedWriter(out)
+            ) {
                 while (reader.ready()) {
                     for (char symbol : reader.readLine().toCharArray()) {
-                        out.append(chekAlphEncrypt(symbol, key));
+                        writer.append(chekAlphEncrypt(symbol, key));
                     }
-                    out.append('\n');
+                    writer.append('\n');
                 }
+                writer.flush();
             }
         }else {
             System.out.println("Ключ должен быть больше 0!");
@@ -33,13 +36,15 @@ public class Cipher {
         if(key>0) {
             try (FileReader in = new FileReader(filePath);
                  BufferedReader reader = new BufferedReader(in);
-                 FileWriter out = new FileWriter("decryptResult.txt")) {
+                 FileWriter out = new FileWriter("decryptResult.txt");
+                 BufferedWriter writer=new BufferedWriter(out)) {
                 while (reader.ready()) {
                     for (char symbol : reader.readLine().toCharArray()) {
-                        out.append(chekAlphDecrypt(symbol, key));
+                        writer.append(chekAlphDecrypt(symbol, key));
                     }
-                    out.append('\n');
+                    writer.append('\n');
                 }
+                writer.flush();
             }
         }else {
             System.out.println("Ключ должен быть больше 0!");
