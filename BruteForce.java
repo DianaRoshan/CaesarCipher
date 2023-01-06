@@ -8,8 +8,8 @@ public class BruteForce {
     public final char[] alphLow="абвгдеёжзийклмнопрстуфхцчшщъыьэюя".toCharArray();
     public final char[] alphUp="АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ".toCharArray();
     public final char[] alph=".,””:-! ?".toCharArray();
-    private ArrayList<String> words=new ArrayList<>(Arrays.asList("Я ","Ты ","Он ","Она ","Они ","Мы ","Это ","Эти ","Этих ","Эта ",
-            " я "," ты "," он "," она "," они "," это "," эти "," мы "));
+    private ArrayList<String> words=new ArrayList<>(Arrays.asList("я ","ты ","он ","она ","они ","это ", "то ", "эти ", "те ", "мы ", "вы ",
+            "что ", "но ", "как ", "как-то ", "как-нибудь ", "да ", "нет ", "никак ", "где ", "когда ", "почему ", "зачем "));
     private ArrayList<Character> charsFromFile=new ArrayList<>();
     private Cipher cipher=new Cipher();
     private int key=0;
@@ -37,7 +37,7 @@ public class BruteForce {
     }
     private boolean checkWords(String str){
         for (String s:words) {
-            if(str.contains(s)){
+            if(str.toLowerCase().contains(s)){
                 return true;
             }
         }
