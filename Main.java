@@ -4,11 +4,16 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
+        //пробелы слева и справа от равно
         Cipher cipher=new Cipher();
         BruteForce bruteForce=new BruteForce();
+        //2 верхних обьекта лишние, можно обойтись статическими функциями
+        //все что не имеет состояния стоит сделать статикой
         Scanner sc=new Scanner(System.in);
         int menu = 0;
+        //тоже больше пробелов
         while (menu!=4){
+            //все можно вывести через один принтлн
             System.out.println("Выберите функцию:");
             System.out.println("1. Зашифровать текст");
             System.out.println("2. Расшифровать текст");
