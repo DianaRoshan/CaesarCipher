@@ -25,6 +25,7 @@ public class Cipher {
     private char chekAlphEncrypt(char symbol,int key){
         for (int j = 0; j < alph.length; j++) {
             if (symbol == alph[j]) {
+                //с лишняя переменная, можно заинлайнить(в идейке можно навести мышкой на эту переменную и она все сделает)
                 char c= alph[(j+key)%alph.length];
                 return c;
             }

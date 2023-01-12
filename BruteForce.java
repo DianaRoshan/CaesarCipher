@@ -5,9 +5,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class BruteForce {
+    //алфавит часто дублируется, его стоит вынести в отдельный класс и оттуда его брать
     public final char[] alphLow="абвгдеёжзийклмнопрстуфхцчшщъыьэюя".toCharArray();
     public final char[] alphUp="АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ".toCharArray();
     public final char[] alph=".,””:-! ?".toCharArray();
+
+    //поле ниже стоит сделать final(это же и советует идейка, если навести и клацнуть мышкой - она сама все сделает)
     private ArrayList<String> words=new ArrayList<>(Arrays.asList("я ","ты ","он ","она ","они ","это ", "то ", "эти ", "те ", "мы ", "вы ",
             "что ", "но ", "как ", "как-то ", "как-нибудь ", "да ", "нет ", "никак ", "где ", "когда ", "почему ", "зачем "));
     private ArrayList<Character> charsFromFile=new ArrayList<>();
@@ -17,7 +20,7 @@ public class BruteForce {
         while (!checkRules()) {
             key++;
             cipher.decrypt(filePath, key);
-            readFile("decryptResult.txt");
+            readFile("decryptResult.txt");//аргумент всегда один и тот же - в нем нет смысла, это значение надо тогда засунуть в функцию
         }
         return key;
     }
@@ -51,10 +54,7 @@ public class BruteForce {
             i++;
         }
         String str = new String(result);
-        if (str.contains(". ") || str.contains(", ") || str.contains("  ") || checkWords(str)) {
-            return true;
-        }
-        return false;
+        return str.contains(". ") || str.contains(", ") || str.contains("  ") || checkWords(str);//так выглядит изящней
     }
 
 }
